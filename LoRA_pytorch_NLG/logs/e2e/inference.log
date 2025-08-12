@@ -1,0 +1,62 @@
+Single GPU training on device: cuda
+myrank: 0 local_rank: 0 device_count: 1 world_size: 1
+====================================================================================================
+        - platform : single
+        - local_rank : 0
+        - rank : 0
+        - device : cuda
+        - world_size : 1
+        - random_seed : 10
+        - data : ./data/e2e/test.jsonl
+        - batch_size : 1
+        - seq_len : 256
+        - eval_len : 64
+        - min_length : 0
+        - model_card : gpt2.sm
+        - init_checkpoint : ./trained_models/GPT2_SM/e2e/model.1000.pt
+        - lora_dim : 4
+        - lora_alpha : 32
+        - work_dir : ./trained_models/GPT2_SM/e2e
+        - beam : 5
+        - length_penalty : 0.8
+        - no_repeat_ngram_size : 3
+        - repetition_penalty : 1.0
+        - eos_token_id : [50256, 628]
+        - output_file : predict.1000.b5p08.jsonl
+        - dist : None
+====================================================================================================
+Experiment dir : ./trained_models/GPT2_SM/e2e
+loading model pretrained weight.
+model sampling ...
+inference samples 0
+inference samples 10
+inference samples 20
+inference samples 30
+inference samples 40
+inference samples 50
+inference samples 60
+inference samples 70
+inference samples 80
+inference samples 90
+inference samples 100
+inference samples 110
+inference samples 120
+inference samples 130
+inference samples 140
+inference samples 150
+inference samples 160
+inference samples 170
+inference samples 180
+inference samples 190
+inference samples 200
+inference samples 210
+inference samples 220
+inference samples 230
+inference samples 240
+inference samples 250
+inference samples 260
+inference samples 270
+inference samples 280
+inference samples 290
+saving prediction file ./trained_models/GPT2_SM/e2e/predict.1000.b5p08.jsonl
+cleanup dist ...

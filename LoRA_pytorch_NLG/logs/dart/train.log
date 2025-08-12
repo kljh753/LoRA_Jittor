@@ -1,0 +1,767 @@
+Single GPU training on device: cuda
+myrank: 0 local_rank: 0 device_count: 1 world_size: 1
+====================================================================================================
+        - platform : single
+        - local_rank : 0
+        - rank : 0
+        - device : cuda
+        - world_size : 1
+        - random_seed : 100
+        - lr : 0.0002
+        - weight_decay : 0.01
+        - correct_bias : True
+        - adam_epislon : 1e-06
+        - no_decay_bias : False
+        - adam_beta1 : 0.9
+        - adam_beta2 : 0.999
+        - scheduler : linear
+        - max_step : None
+        - max_epoch : 3
+        - warmup_step : 500
+        - i_steps : 0
+        - i_lrs : 0.00025
+        - train_data : ./data/dart/train.jsonl
+        - valid_data : ./data/dart/valid.jsonl
+        - train_batch_size : 4
+        - valid_batch_size : 1
+        - grad_acc : 1
+        - clip : 0.0
+        - seq_len : 256
+        - model_card : gpt2.sm
+        - init_checkpoint : ./pretrained_checkpoints/gpt2-pytorch_model.bin
+        - fp16 : False
+        - log_interval : 20
+        - eval_interval : 100
+        - save_interval : 1000
+        - work_dir : ./trained_models/GPT2_SM/dart
+        - lora_dim : 4
+        - lora_alpha : 32
+        - obj : clm
+        - lora_dropout : 0.1
+        - label_smooth : 0.1
+        - roll_interval : -1
+        - roll_lr : 1e-05
+        - roll_step : 100
+        - eval_epoch : 1
+        - dist : None
+====================================================================================================
+Experiment dir : ./trained_models/GPT2_SM/dart
+loading model pretrained weight.
+set max_step: 3750
+start to train the model................ 1
+| epoch   1 step       20 |     20 batches | lr 8e-06 | ms/batch 280.94 | loss  5.25 | avg loss  6.08 | ppl 436.43
+| epoch   1 step       40 |     40 batches | lr 1.6e-05 | ms/batch 187.23 | loss  6.56 | avg loss  5.82 | ppl 335.56
+| epoch   1 step       60 |     60 batches | lr 2.4e-05 | ms/batch 191.78 | loss  5.74 | avg loss  5.79 | ppl 325.79
+| epoch   1 step       80 |     80 batches | lr 3.2e-05 | ms/batch 190.46 | loss  6.08 | avg loss  5.96 | ppl 388.09
+| epoch   1 step      100 |    100 batches | lr 4e-05 | ms/batch 184.98 | loss  5.87 | avg loss  5.63 | ppl 277.46
+eval samples: 0 loss: tensor(4.2384, device='cuda:0')
+eval samples: 100 loss: tensor(4.4884, device='cuda:0')
+eval samples: 200 loss: tensor(2.7874, device='cuda:0')
+eval samples: 300 loss: tensor(6.6845, device='cuda:0')
+eval samples: 400 loss: tensor(5.1110, device='cuda:0')
+eval samples: 500 loss: tensor(2.3421, device='cuda:0')
+eval samples: 600 loss: tensor(3.3918, device='cuda:0')
+eval samples: 700 loss: tensor(5.7813, device='cuda:0')
+eval samples: 800 loss: tensor(3.2755, device='cuda:0')
+eval samples: 900 loss: tensor(6.1323, device='cuda:0')
+average loss 4.066871129870415
+----------------------------------------------------------------------------------------------------
+| Eval   1 at step      100 | time: 38.86s | valid loss  4.07 | valid ppl 58.37 | best ppl 58.37 
+----------------------------------------------------------------------------------------------------
+| epoch   1 step      120 |    120 batches | lr 4.8e-05 | ms/batch 2075.55 | loss  5.33 | avg loss  5.45 | ppl 231.77
+| epoch   1 step      140 |    140 batches | lr 5.6e-05 | ms/batch 190.48 | loss  5.23 | avg loss  5.04 | ppl 154.21
+| epoch   1 step      160 |    160 batches | lr 6.4e-05 | ms/batch 188.35 | loss  4.00 | avg loss  4.40 | ppl 81.36
+| epoch   1 step      180 |    180 batches | lr 7.2e-05 | ms/batch 192.44 | loss  4.32 | avg loss  4.13 | ppl 62.40
+| epoch   1 step      200 |    200 batches | lr 8e-05 | ms/batch 191.65 | loss  3.88 | avg loss  3.84 | ppl 46.56
+eval samples: 0 loss: tensor(1.8738, device='cuda:0')
+eval samples: 100 loss: tensor(1.6904, device='cuda:0')
+eval samples: 200 loss: tensor(1.6686, device='cuda:0')
+eval samples: 300 loss: tensor(4.2214, device='cuda:0')
+eval samples: 400 loss: tensor(2.6542, device='cuda:0')
+eval samples: 500 loss: tensor(1.5297, device='cuda:0')
+eval samples: 600 loss: tensor(1.8770, device='cuda:0')
+eval samples: 700 loss: tensor(2.4528, device='cuda:0')
+eval samples: 800 loss: tensor(1.7941, device='cuda:0')
+eval samples: 900 loss: tensor(2.4479, device='cuda:0')
+average loss 2.18262972587347
+----------------------------------------------------------------------------------------------------
+| Eval   2 at step      200 | time: 39.26s | valid loss  2.18 | valid ppl  8.87 | best ppl  8.87 
+----------------------------------------------------------------------------------------------------
+| epoch   1 step      220 |    220 batches | lr 8.8e-05 | ms/batch 2162.93 | loss  3.83 | avg loss  3.67 | ppl 39.11
+| epoch   1 step      240 |    240 batches | lr 9.6e-05 | ms/batch 141.79 | loss  3.36 | avg loss  3.67 | ppl 39.35
+| epoch   1 step      260 |    260 batches | lr 0.000104 | ms/batch 195.77 | loss  4.31 | avg loss  3.62 | ppl 37.18
+| epoch   1 step      280 |    280 batches | lr 0.000112 | ms/batch 208.40 | loss  3.13 | avg loss  3.55 | ppl 34.69
+| epoch   1 step      300 |    300 batches | lr 0.00012 | ms/batch 195.48 | loss  3.91 | avg loss  3.59 | ppl 36.31
+eval samples: 0 loss: tensor(1.7598, device='cuda:0')
+eval samples: 100 loss: tensor(1.4397, device='cuda:0')
+eval samples: 200 loss: tensor(1.5971, device='cuda:0')
+eval samples: 300 loss: tensor(4.0900, device='cuda:0')
+eval samples: 400 loss: tensor(2.1984, device='cuda:0')
+eval samples: 500 loss: tensor(1.5968, device='cuda:0')
+eval samples: 600 loss: tensor(1.8282, device='cuda:0')
+eval samples: 700 loss: tensor(2.3683, device='cuda:0')
+eval samples: 800 loss: tensor(1.6661, device='cuda:0')
+eval samples: 900 loss: tensor(2.1609, device='cuda:0')
+average loss 2.0339026650190353
+----------------------------------------------------------------------------------------------------
+| Eval   3 at step      300 | time: 38.80s | valid loss  2.03 | valid ppl  7.64 | best ppl  7.64 
+----------------------------------------------------------------------------------------------------
+| epoch   1 step      320 |    320 batches | lr 0.000128 | ms/batch 2144.66 | loss  4.04 | avg loss  3.76 | ppl 42.76
+| epoch   1 step      340 |    340 batches | lr 0.000136 | ms/batch 201.32 | loss  3.62 | avg loss  3.49 | ppl 32.84
+| epoch   1 step      360 |    360 batches | lr 0.000144 | ms/batch 195.83 | loss  3.42 | avg loss  3.47 | ppl 32.19
+| epoch   1 step      380 |    380 batches | lr 0.000152 | ms/batch 141.58 | loss  4.04 | avg loss  3.55 | ppl 34.71
+| epoch   1 step      400 |    400 batches | lr 0.00016 | ms/batch 199.32 | loss  3.30 | avg loss  3.64 | ppl 37.99
+eval samples: 0 loss: tensor(1.6026, device='cuda:0')
+eval samples: 100 loss: tensor(1.3650, device='cuda:0')
+eval samples: 200 loss: tensor(1.4817, device='cuda:0')
+eval samples: 300 loss: tensor(4.2463, device='cuda:0')
+eval samples: 400 loss: tensor(2.1105, device='cuda:0')
+eval samples: 500 loss: tensor(1.5442, device='cuda:0')
+eval samples: 600 loss: tensor(1.6612, device='cuda:0')
+eval samples: 700 loss: tensor(2.3864, device='cuda:0')
+eval samples: 800 loss: tensor(1.6497, device='cuda:0')
+eval samples: 900 loss: tensor(1.9882, device='cuda:0')
+average loss 1.981666842997074
+----------------------------------------------------------------------------------------------------
+| Eval   4 at step      400 | time: 37.98s | valid loss  1.98 | valid ppl  7.25 | best ppl  7.25 
+----------------------------------------------------------------------------------------------------
+| epoch   1 step      420 |    420 batches | lr 0.000168 | ms/batch 2101.37 | loss  3.30 | avg loss  3.40 | ppl 30.11
+| epoch   1 step      440 |    440 batches | lr 0.000176 | ms/batch 210.37 | loss  3.27 | avg loss  3.52 | ppl 33.93
+| epoch   1 step      460 |    460 batches | lr 0.000184 | ms/batch 199.26 | loss  3.30 | avg loss  3.45 | ppl 31.61
+| epoch   1 step      480 |    480 batches | lr 0.000192 | ms/batch 207.11 | loss  3.20 | avg loss  3.40 | ppl 29.84
+| epoch   1 step      500 |    500 batches | lr 0.0002 | ms/batch 135.55 | loss  3.25 | avg loss  3.36 | ppl 28.66
+eval samples: 0 loss: tensor(1.7320, device='cuda:0')
+eval samples: 100 loss: tensor(1.2719, device='cuda:0')
+eval samples: 200 loss: tensor(1.4397, device='cuda:0')
+eval samples: 300 loss: tensor(4.1856, device='cuda:0')
+eval samples: 400 loss: tensor(2.1712, device='cuda:0')
+eval samples: 500 loss: tensor(1.5559, device='cuda:0')
+eval samples: 600 loss: tensor(1.6338, device='cuda:0')
+eval samples: 700 loss: tensor(2.3404, device='cuda:0')
+eval samples: 800 loss: tensor(1.6602, device='cuda:0')
+eval samples: 900 loss: tensor(1.9436, device='cuda:0')
+average loss 1.9686120463311672
+----------------------------------------------------------------------------------------------------
+| Eval   5 at step      500 | time: 38.25s | valid loss  1.97 | valid ppl  7.16 | best ppl  7.16 
+----------------------------------------------------------------------------------------------------
+| epoch   1 step      520 |    520 batches | lr 0.000199 | ms/batch 2120.29 | loss  3.91 | avg loss  3.52 | ppl 33.64
+| epoch   1 step      540 |    540 batches | lr 0.000198 | ms/batch 213.46 | loss  3.17 | avg loss  3.22 | ppl 25.15
+| epoch   1 step      560 |    560 batches | lr 0.000196 | ms/batch 199.11 | loss  2.92 | avg loss  3.41 | ppl 30.14
+| epoch   1 step      580 |    580 batches | lr 0.000195 | ms/batch 213.81 | loss  3.35 | avg loss  3.40 | ppl 30.03
+| epoch   1 step      600 |    600 batches | lr 0.000194 | ms/batch 197.17 | loss  3.07 | avg loss  3.48 | ppl 32.38
+eval samples: 0 loss: tensor(1.5764, device='cuda:0')
+eval samples: 100 loss: tensor(1.3537, device='cuda:0')
+eval samples: 200 loss: tensor(1.3661, device='cuda:0')
+eval samples: 300 loss: tensor(4.0439, device='cuda:0')
+eval samples: 400 loss: tensor(2.0921, device='cuda:0')
+eval samples: 500 loss: tensor(1.5176, device='cuda:0')
+eval samples: 600 loss: tensor(1.6356, device='cuda:0')
+eval samples: 700 loss: tensor(2.3621, device='cuda:0')
+eval samples: 800 loss: tensor(1.6034, device='cuda:0')
+eval samples: 900 loss: tensor(1.7817, device='cuda:0')
+average loss 1.903647483855486
+----------------------------------------------------------------------------------------------------
+| Eval   6 at step      600 | time: 37.47s | valid loss  1.90 | valid ppl  6.71 | best ppl  6.71 
+----------------------------------------------------------------------------------------------------
+| epoch   1 step      620 |    620 batches | lr 0.000193 | ms/batch 2075.72 | loss  2.90 | avg loss  3.34 | ppl 28.28
+| epoch   1 step      640 |    640 batches | lr 0.000191 | ms/batch 214.49 | loss  3.41 | avg loss  3.39 | ppl 29.55
+| epoch   1 step      660 |    660 batches | lr 0.00019 | ms/batch 201.16 | loss  3.66 | avg loss  3.34 | ppl 28.22
+| epoch   1 step      680 |    680 batches | lr 0.000189 | ms/batch 211.82 | loss  4.07 | avg loss  3.40 | ppl 29.91
+| epoch   1 step      700 |    700 batches | lr 0.000188 | ms/batch 204.62 | loss  2.96 | avg loss  3.28 | ppl 26.67
+eval samples: 0 loss: tensor(1.5706, device='cuda:0')
+eval samples: 100 loss: tensor(1.3089, device='cuda:0')
+eval samples: 200 loss: tensor(1.3024, device='cuda:0')
+eval samples: 300 loss: tensor(4.1430, device='cuda:0')
+eval samples: 400 loss: tensor(2.0304, device='cuda:0')
+eval samples: 500 loss: tensor(1.5575, device='cuda:0')
+eval samples: 600 loss: tensor(1.5970, device='cuda:0')
+eval samples: 700 loss: tensor(2.4062, device='cuda:0')
+eval samples: 800 loss: tensor(1.5413, device='cuda:0')
+eval samples: 900 loss: tensor(1.8468, device='cuda:0')
+average loss 1.9018961872756481
+----------------------------------------------------------------------------------------------------
+| Eval   7 at step      700 | time: 38.04s | valid loss  1.90 | valid ppl  6.70 | best ppl  6.70 
+----------------------------------------------------------------------------------------------------
+| epoch   1 step      720 |    720 batches | lr 0.000186 | ms/batch 2105.28 | loss  3.55 | avg loss  3.39 | ppl 29.76
+| epoch   1 step      740 |    740 batches | lr 0.000185 | ms/batch 212.97 | loss  3.43 | avg loss  3.47 | ppl 32.11
+| epoch   1 step      760 |    760 batches | lr 0.000184 | ms/batch 197.97 | loss  3.29 | avg loss  3.39 | ppl 29.52
+| epoch   1 step      780 |    780 batches | lr 0.000183 | ms/batch 215.20 | loss  3.19 | avg loss  3.33 | ppl 28.07
+| epoch   1 step      800 |    800 batches | lr 0.000182 | ms/batch 202.09 | loss  3.66 | avg loss  3.34 | ppl 28.24
+eval samples: 0 loss: tensor(1.6306, device='cuda:0')
+eval samples: 100 loss: tensor(1.3189, device='cuda:0')
+eval samples: 200 loss: tensor(1.3889, device='cuda:0')
+eval samples: 300 loss: tensor(3.8378, device='cuda:0')
+eval samples: 400 loss: tensor(2.0823, device='cuda:0')
+eval samples: 500 loss: tensor(1.5677, device='cuda:0')
+eval samples: 600 loss: tensor(1.6223, device='cuda:0')
+eval samples: 700 loss: tensor(2.4881, device='cuda:0')
+eval samples: 800 loss: tensor(1.5346, device='cuda:0')
+eval samples: 900 loss: tensor(1.9882, device='cuda:0')
+average loss 1.9064090964496136
+----------------------------------------------------------------------------------------------------
+| Eval   8 at step      800 | time: 37.80s | valid loss  1.91 | valid ppl  6.73 | best ppl  6.70 
+----------------------------------------------------------------------------------------------------
+| epoch   1 step      820 |    820 batches | lr 0.00018 | ms/batch 2095.53 | loss  3.12 | avg loss  3.29 | ppl 26.88
+| epoch   1 step      840 |    840 batches | lr 0.000179 | ms/batch 151.88 | loss  3.67 | avg loss  3.31 | ppl 27.30
+| epoch   1 step      860 |    860 batches | lr 0.000178 | ms/batch 201.57 | loss  2.79 | avg loss  3.48 | ppl 32.38
+| epoch   1 step      880 |    880 batches | lr 0.000177 | ms/batch 212.75 | loss  3.29 | avg loss  3.38 | ppl 29.36
+| epoch   1 step      900 |    900 batches | lr 0.000175 | ms/batch 205.14 | loss  3.41 | avg loss  3.48 | ppl 32.31
+eval samples: 0 loss: tensor(1.6164, device='cuda:0')
+eval samples: 100 loss: tensor(1.3425, device='cuda:0')
+eval samples: 200 loss: tensor(1.4208, device='cuda:0')
+eval samples: 300 loss: tensor(3.9368, device='cuda:0')
+eval samples: 400 loss: tensor(1.9655, device='cuda:0')
+eval samples: 500 loss: tensor(1.5556, device='cuda:0')
+eval samples: 600 loss: tensor(1.6675, device='cuda:0')
+eval samples: 700 loss: tensor(2.3592, device='cuda:0')
+eval samples: 800 loss: tensor(1.5101, device='cuda:0')
+eval samples: 900 loss: tensor(2.2466, device='cuda:0')
+average loss 1.8872888382673263
+----------------------------------------------------------------------------------------------------
+| Eval   9 at step      900 | time: 37.63s | valid loss  1.89 | valid ppl  6.60 | best ppl  6.60 
+----------------------------------------------------------------------------------------------------
+| epoch   1 step      920 |    920 batches | lr 0.000174 | ms/batch 2080.75 | loss  3.28 | avg loss  3.38 | ppl 29.35
+| epoch   1 step      940 |    940 batches | lr 0.000173 | ms/batch 215.19 | loss  3.80 | avg loss  3.46 | ppl 31.85
+| epoch   1 step      960 |    960 batches | lr 0.000172 | ms/batch 138.56 | loss  3.57 | avg loss  3.22 | ppl 24.94
+| epoch   1 step      980 |    980 batches | lr 0.00017 | ms/batch 207.27 | loss  3.79 | avg loss  3.42 | ppl 30.44
+| epoch   1 step     1000 |   1000 batches | lr 0.000169 | ms/batch 204.69 | loss  3.62 | avg loss  3.38 | ppl 29.47
+saving checkpoint ./trained_models/GPT2_SM/dart/model.1000.pt
+eval samples: 0 loss: tensor(1.4784, device='cuda:0')
+eval samples: 100 loss: tensor(1.1958, device='cuda:0')
+eval samples: 200 loss: tensor(1.3384, device='cuda:0')
+eval samples: 300 loss: tensor(3.7757, device='cuda:0')
+eval samples: 400 loss: tensor(1.9184, device='cuda:0')
+eval samples: 500 loss: tensor(1.5200, device='cuda:0')
+eval samples: 600 loss: tensor(1.5858, device='cuda:0')
+eval samples: 700 loss: tensor(2.3799, device='cuda:0')
+eval samples: 800 loss: tensor(1.4834, device='cuda:0')
+eval samples: 900 loss: tensor(2.2165, device='cuda:0')
+average loss 1.8578426299989224
+----------------------------------------------------------------------------------------------------
+| Eval  10 at step     1000 | time: 38.78s | valid loss  1.86 | valid ppl  6.41 | best ppl  6.41 
+----------------------------------------------------------------------------------------------------
+| epoch   1 step     1020 |   1020 batches | lr 0.000168 | ms/batch 2139.14 | loss  3.33 | avg loss  3.23 | ppl 25.31
+| epoch   1 step     1040 |   1040 batches | lr 0.000167 | ms/batch 218.80 | loss  2.98 | avg loss  3.44 | ppl 31.32
+| epoch   1 step     1060 |   1060 batches | lr 0.000166 | ms/batch 202.54 | loss  3.25 | avg loss  3.34 | ppl 28.22
+| epoch   1 step     1080 |   1080 batches | lr 0.000164 | ms/batch 153.44 | loss  2.96 | avg loss  3.31 | ppl 27.47
+| epoch   1 step     1100 |   1100 batches | lr 0.000163 | ms/batch 203.72 | loss  3.36 | avg loss  3.44 | ppl 31.31
+eval samples: 0 loss: tensor(1.6100, device='cuda:0')
+eval samples: 100 loss: tensor(1.1826, device='cuda:0')
+eval samples: 200 loss: tensor(1.5061, device='cuda:0')
+eval samples: 300 loss: tensor(3.7551, device='cuda:0')
+eval samples: 400 loss: tensor(1.9881, device='cuda:0')
+eval samples: 500 loss: tensor(1.5453, device='cuda:0')
+eval samples: 600 loss: tensor(1.6077, device='cuda:0')
+eval samples: 700 loss: tensor(2.3738, device='cuda:0')
+eval samples: 800 loss: tensor(1.4840, device='cuda:0')
+eval samples: 900 loss: tensor(1.9972, device='cuda:0')
+average loss 1.8852090450525283
+----------------------------------------------------------------------------------------------------
+| Eval  11 at step     1100 | time: 37.17s | valid loss  1.89 | valid ppl  6.59 | best ppl  6.41 
+----------------------------------------------------------------------------------------------------
+| epoch   1 step     1120 |   1120 batches | lr 0.000162 | ms/batch 2068.09 | loss  3.21 | avg loss  3.10 | ppl 22.11
+| epoch   1 step     1140 |   1140 batches | lr 0.000161 | ms/batch 210.28 | loss  3.26 | avg loss  3.26 | ppl 26.08
+| epoch   1 step     1160 |   1160 batches | lr 0.000159 | ms/batch 208.31 | loss  3.58 | avg loss  3.22 | ppl 24.97
+| epoch   1 step     1180 |   1180 batches | lr 0.000158 | ms/batch 206.70 | loss  2.75 | avg loss  3.22 | ppl 25.01
+| epoch   1 step     1200 |   1200 batches | lr 0.000157 | ms/batch 144.80 | loss  3.10 | avg loss  3.41 | ppl 30.38
+eval samples: 0 loss: tensor(1.5620, device='cuda:0')
+eval samples: 100 loss: tensor(1.2973, device='cuda:0')
+eval samples: 200 loss: tensor(1.3507, device='cuda:0')
+eval samples: 300 loss: tensor(3.6288, device='cuda:0')
+eval samples: 400 loss: tensor(1.8533, device='cuda:0')
+eval samples: 500 loss: tensor(1.5519, device='cuda:0')
+eval samples: 600 loss: tensor(1.6654, device='cuda:0')
+eval samples: 700 loss: tensor(2.3089, device='cuda:0')
+eval samples: 800 loss: tensor(1.4771, device='cuda:0')
+eval samples: 900 loss: tensor(2.2388, device='cuda:0')
+average loss 1.873965422809124
+----------------------------------------------------------------------------------------------------
+| Eval  12 at step     1200 | time: 38.27s | valid loss  1.87 | valid ppl  6.51 | best ppl  6.41 
+----------------------------------------------------------------------------------------------------
+| epoch   1 step     1220 |   1220 batches | lr 0.000156 | ms/batch 2124.19 | loss  3.10 | avg loss  3.23 | ppl 25.35
+| epoch   1 step     1240 |   1240 batches | lr 0.000154 | ms/batch 213.64 | loss  2.73 | avg loss  3.27 | ppl 26.25
+saving checkpoint ./trained_models/GPT2_SM/dart/model.1250.pt
+start to train the model................ 2
+| epoch   2 step     1260 |     10 batches | lr 0.000153 | ms/batch 108.44 | loss  3.44 | avg loss  3.24 | ppl 25.56
+| epoch   2 step     1280 |     30 batches | lr 0.000152 | ms/batch 187.61 | loss  3.11 | avg loss  3.21 | ppl 24.89
+| epoch   2 step     1300 |     50 batches | lr 0.000151 | ms/batch 197.55 | loss  3.19 | avg loss  3.17 | ppl 23.71
+eval samples: 0 loss: tensor(1.6195, device='cuda:0')
+eval samples: 100 loss: tensor(1.2582, device='cuda:0')
+eval samples: 200 loss: tensor(1.2835, device='cuda:0')
+eval samples: 300 loss: tensor(3.7870, device='cuda:0')
+eval samples: 400 loss: tensor(1.9997, device='cuda:0')
+eval samples: 500 loss: tensor(1.5453, device='cuda:0')
+eval samples: 600 loss: tensor(1.5156, device='cuda:0')
+eval samples: 700 loss: tensor(2.2774, device='cuda:0')
+eval samples: 800 loss: tensor(1.4635, device='cuda:0')
+eval samples: 900 loss: tensor(1.9940, device='cuda:0')
+average loss 1.8441821919083596
+----------------------------------------------------------------------------------------------------
+| Eval  13 at step     1300 | time: 37.40s | valid loss  1.84 | valid ppl  6.32 | best ppl  6.32 
+----------------------------------------------------------------------------------------------------
+| epoch   2 step     1320 |     70 batches | lr 0.00015 | ms/batch 2089.80 | loss  2.92 | avg loss  3.43 | ppl 30.91
+| epoch   2 step     1340 |     90 batches | lr 0.000148 | ms/batch 207.53 | loss  3.21 | avg loss  3.32 | ppl 27.75
+| epoch   2 step     1360 |    110 batches | lr 0.000147 | ms/batch 203.78 | loss  4.08 | avg loss  3.14 | ppl 22.99
+| epoch   2 step     1380 |    130 batches | lr 0.000146 | ms/batch 146.45 | loss  3.08 | avg loss  3.21 | ppl 24.88
+| epoch   2 step     1400 |    150 batches | lr 0.000145 | ms/batch 206.12 | loss  3.29 | avg loss  3.18 | ppl 23.94
+eval samples: 0 loss: tensor(1.5668, device='cuda:0')
+eval samples: 100 loss: tensor(1.3214, device='cuda:0')
+eval samples: 200 loss: tensor(1.3041, device='cuda:0')
+eval samples: 300 loss: tensor(3.7568, device='cuda:0')
+eval samples: 400 loss: tensor(1.9969, device='cuda:0')
+eval samples: 500 loss: tensor(1.6132, device='cuda:0')
+eval samples: 600 loss: tensor(1.7097, device='cuda:0')
+eval samples: 700 loss: tensor(2.3815, device='cuda:0')
+eval samples: 800 loss: tensor(1.5088, device='cuda:0')
+eval samples: 900 loss: tensor(1.9524, device='cuda:0')
+average loss 1.8549082273244857
+----------------------------------------------------------------------------------------------------
+| Eval  14 at step     1400 | time: 37.17s | valid loss  1.85 | valid ppl  6.39 | best ppl  6.32 
+----------------------------------------------------------------------------------------------------
+| epoch   2 step     1420 |    170 batches | lr 0.000143 | ms/batch 2069.93 | loss  3.71 | avg loss  3.32 | ppl 27.63
+| epoch   2 step     1440 |    190 batches | lr 0.000142 | ms/batch 207.62 | loss  3.68 | avg loss  3.13 | ppl 22.80
+| epoch   2 step     1460 |    210 batches | lr 0.000141 | ms/batch 206.66 | loss  2.62 | avg loss  3.12 | ppl 22.59
+| epoch   2 step     1480 |    230 batches | lr 0.00014 | ms/batch 208.84 | loss  3.23 | avg loss  3.16 | ppl 23.55
+| epoch   2 step     1500 |    250 batches | lr 0.000138 | ms/batch 206.36 | loss  3.20 | avg loss  3.24 | ppl 25.51
+eval samples: 0 loss: tensor(1.6002, device='cuda:0')
+eval samples: 100 loss: tensor(1.2841, device='cuda:0')
+eval samples: 200 loss: tensor(1.2855, device='cuda:0')
+eval samples: 300 loss: tensor(3.8385, device='cuda:0')
+eval samples: 400 loss: tensor(1.8794, device='cuda:0')
+eval samples: 500 loss: tensor(1.5309, device='cuda:0')
+eval samples: 600 loss: tensor(1.5657, device='cuda:0')
+eval samples: 700 loss: tensor(2.2906, device='cuda:0')
+eval samples: 800 loss: tensor(1.4657, device='cuda:0')
+eval samples: 900 loss: tensor(2.0733, device='cuda:0')
+average loss 1.829802752494812
+----------------------------------------------------------------------------------------------------
+| Eval  15 at step     1500 | time: 36.52s | valid loss  1.83 | valid ppl  6.23 | best ppl  6.23 
+----------------------------------------------------------------------------------------------------
+| epoch   2 step     1520 |    270 batches | lr 0.000137 | ms/batch 2038.14 | loss  2.79 | avg loss  3.25 | ppl 25.77
+| epoch   2 step     1540 |    290 batches | lr 0.000136 | ms/batch 216.54 | loss  3.41 | avg loss  3.18 | ppl 24.09
+| epoch   2 step     1560 |    310 batches | lr 0.000135 | ms/batch 211.32 | loss  2.75 | avg loss  3.16 | ppl 23.67
+| epoch   2 step     1580 |    330 batches | lr 0.000134 | ms/batch 209.50 | loss  3.24 | avg loss  3.20 | ppl 24.43
+| epoch   2 step     1600 |    350 batches | lr 0.000132 | ms/batch 209.18 | loss  2.49 | avg loss  3.21 | ppl 24.76
+eval samples: 0 loss: tensor(1.5361, device='cuda:0')
+eval samples: 100 loss: tensor(1.2801, device='cuda:0')
+eval samples: 200 loss: tensor(1.3316, device='cuda:0')
+eval samples: 300 loss: tensor(3.6129, device='cuda:0')
+eval samples: 400 loss: tensor(1.9713, device='cuda:0')
+eval samples: 500 loss: tensor(1.5931, device='cuda:0')
+eval samples: 600 loss: tensor(1.7204, device='cuda:0')
+eval samples: 700 loss: tensor(2.2536, device='cuda:0')
+eval samples: 800 loss: tensor(1.5053, device='cuda:0')
+eval samples: 900 loss: tensor(2.1246, device='cuda:0')
+average loss 1.8544787040650845
+----------------------------------------------------------------------------------------------------
+| Eval  16 at step     1600 | time: 36.30s | valid loss  1.85 | valid ppl  6.39 | best ppl  6.23 
+----------------------------------------------------------------------------------------------------
+| epoch   2 step     1620 |    370 batches | lr 0.000131 | ms/batch 2025.94 | loss  3.01 | avg loss  3.06 | ppl 21.29
+| epoch   2 step     1640 |    390 batches | lr 0.00013 | ms/batch 206.20 | loss  3.27 | avg loss  3.35 | ppl 28.36
+| epoch   2 step     1660 |    410 batches | lr 0.000129 | ms/batch 208.52 | loss  3.82 | avg loss  3.43 | ppl 30.97
+| epoch   2 step     1680 |    430 batches | lr 0.000127 | ms/batch 207.43 | loss  3.46 | avg loss  3.22 | ppl 25.02
+| epoch   2 step     1700 |    450 batches | lr 0.000126 | ms/batch 204.72 | loss  3.32 | avg loss  3.37 | ppl 29.20
+eval samples: 0 loss: tensor(1.5605, device='cuda:0')
+eval samples: 100 loss: tensor(1.2981, device='cuda:0')
+eval samples: 200 loss: tensor(1.3077, device='cuda:0')
+eval samples: 300 loss: tensor(3.5160, device='cuda:0')
+eval samples: 400 loss: tensor(1.9564, device='cuda:0')
+eval samples: 500 loss: tensor(1.5634, device='cuda:0')
+eval samples: 600 loss: tensor(1.6639, device='cuda:0')
+eval samples: 700 loss: tensor(2.2956, device='cuda:0')
+eval samples: 800 loss: tensor(1.4470, device='cuda:0')
+eval samples: 900 loss: tensor(2.2861, device='cuda:0')
+average loss 1.848131260663271
+----------------------------------------------------------------------------------------------------
+| Eval  17 at step     1700 | time: 38.81s | valid loss  1.85 | valid ppl  6.35 | best ppl  6.23 
+----------------------------------------------------------------------------------------------------
+| epoch   2 step     1720 |    470 batches | lr 0.000125 | ms/batch 2080.78 | loss  3.15 | avg loss  3.31 | ppl 27.41
+| epoch   2 step     1740 |    490 batches | lr 0.000124 | ms/batch 205.17 | loss  3.29 | avg loss  3.25 | ppl 25.75
+| epoch   2 step     1760 |    510 batches | lr 0.000122 | ms/batch 211.69 | loss  3.42 | avg loss  3.32 | ppl 27.57
+| epoch   2 step     1780 |    530 batches | lr 0.000121 | ms/batch 212.36 | loss  2.83 | avg loss  3.35 | ppl 28.42
+| epoch   2 step     1800 |    550 batches | lr 0.00012 | ms/batch 212.12 | loss  3.68 | avg loss  3.36 | ppl 28.72
+eval samples: 0 loss: tensor(1.5550, device='cuda:0')
+eval samples: 100 loss: tensor(1.2532, device='cuda:0')
+eval samples: 200 loss: tensor(1.3121, device='cuda:0')
+eval samples: 300 loss: tensor(3.6688, device='cuda:0')
+eval samples: 400 loss: tensor(1.9817, device='cuda:0')
+eval samples: 500 loss: tensor(1.5924, device='cuda:0')
+eval samples: 600 loss: tensor(1.6844, device='cuda:0')
+eval samples: 700 loss: tensor(2.3186, device='cuda:0')
+eval samples: 800 loss: tensor(1.4614, device='cuda:0')
+eval samples: 900 loss: tensor(2.1948, device='cuda:0')
+average loss 1.842139146953821
+----------------------------------------------------------------------------------------------------
+| Eval  18 at step     1800 | time: 37.10s | valid loss  1.84 | valid ppl  6.31 | best ppl  6.23 
+----------------------------------------------------------------------------------------------------
+| epoch   2 step     1820 |    570 batches | lr 0.000119 | ms/batch 2064.42 | loss  2.59 | avg loss  3.23 | ppl 25.19
+| epoch   2 step     1840 |    590 batches | lr 0.000118 | ms/batch 145.44 | loss  3.97 | avg loss  3.36 | ppl 28.89
+| epoch   2 step     1860 |    610 batches | lr 0.000116 | ms/batch 210.05 | loss  3.70 | avg loss  3.34 | ppl 28.12
+| epoch   2 step     1880 |    630 batches | lr 0.000115 | ms/batch 206.10 | loss  3.16 | avg loss  3.28 | ppl 26.67
+| epoch   2 step     1900 |    650 batches | lr 0.000114 | ms/batch 211.06 | loss  3.05 | avg loss  3.33 | ppl 27.87
+eval samples: 0 loss: tensor(1.4720, device='cuda:0')
+eval samples: 100 loss: tensor(1.3678, device='cuda:0')
+eval samples: 200 loss: tensor(1.2646, device='cuda:0')
+eval samples: 300 loss: tensor(3.7632, device='cuda:0')
+eval samples: 400 loss: tensor(2.0880, device='cuda:0')
+eval samples: 500 loss: tensor(1.5806, device='cuda:0')
+eval samples: 600 loss: tensor(1.5704, device='cuda:0')
+eval samples: 700 loss: tensor(2.2839, device='cuda:0')
+eval samples: 800 loss: tensor(1.3972, device='cuda:0')
+eval samples: 900 loss: tensor(2.2345, device='cuda:0')
+average loss 1.8223474378585816
+----------------------------------------------------------------------------------------------------
+| Eval  19 at step     1900 | time: 38.49s | valid loss  1.82 | valid ppl  6.19 | best ppl  6.19 
+----------------------------------------------------------------------------------------------------
+| epoch   2 step     1920 |    670 batches | lr 0.000113 | ms/batch 2135.64 | loss  3.30 | avg loss  3.11 | ppl 22.35
+| epoch   2 step     1940 |    690 batches | lr 0.000111 | ms/batch 207.82 | loss  3.99 | avg loss  3.54 | ppl 34.34
+| epoch   2 step     1960 |    710 batches | lr 0.00011 | ms/batch 140.15 | loss  4.60 | avg loss  3.17 | ppl 23.75
+| epoch   2 step     1980 |    730 batches | lr 0.000109 | ms/batch 207.02 | loss  2.78 | avg loss  3.20 | ppl 24.42
+| epoch   2 step     2000 |    750 batches | lr 0.000108 | ms/batch 209.31 | loss  2.88 | avg loss  3.12 | ppl 22.64
+saving checkpoint ./trained_models/GPT2_SM/dart/model.2000.pt
+eval samples: 0 loss: tensor(1.4574, device='cuda:0')
+eval samples: 100 loss: tensor(1.3310, device='cuda:0')
+eval samples: 200 loss: tensor(1.2914, device='cuda:0')
+eval samples: 300 loss: tensor(3.6883, device='cuda:0')
+eval samples: 400 loss: tensor(1.9213, device='cuda:0')
+eval samples: 500 loss: tensor(1.5745, device='cuda:0')
+eval samples: 600 loss: tensor(1.5674, device='cuda:0')
+eval samples: 700 loss: tensor(2.2318, device='cuda:0')
+eval samples: 800 loss: tensor(1.4492, device='cuda:0')
+eval samples: 900 loss: tensor(2.3394, device='cuda:0')
+average loss 1.8242216297984124
+----------------------------------------------------------------------------------------------------
+| Eval  20 at step     2000 | time: 37.20s | valid loss  1.82 | valid ppl  6.20 | best ppl  6.19 
+----------------------------------------------------------------------------------------------------
+| epoch   2 step     2020 |    770 batches | lr 0.000106 | ms/batch 2071.70 | loss  2.66 | avg loss  3.30 | ppl 27.05
+| epoch   2 step     2040 |    790 batches | lr 0.000105 | ms/batch 212.47 | loss  3.71 | avg loss  3.20 | ppl 24.56
+| epoch   2 step     2060 |    810 batches | lr 0.000104 | ms/batch 208.84 | loss  3.32 | avg loss  3.04 | ppl 20.89
+| epoch   2 step     2080 |    830 batches | lr 0.000103 | ms/batch 209.55 | loss  3.18 | avg loss  3.18 | ppl 24.07
+| epoch   2 step     2100 |    850 batches | lr 0.000102 | ms/batch 141.83 | loss  2.87 | avg loss  3.23 | ppl 25.39
+eval samples: 0 loss: tensor(1.5344, device='cuda:0')
+eval samples: 100 loss: tensor(1.2730, device='cuda:0')
+eval samples: 200 loss: tensor(1.2853, device='cuda:0')
+eval samples: 300 loss: tensor(3.4609, device='cuda:0')
+eval samples: 400 loss: tensor(1.9732, device='cuda:0')
+eval samples: 500 loss: tensor(1.5497, device='cuda:0')
+eval samples: 600 loss: tensor(1.6737, device='cuda:0')
+eval samples: 700 loss: tensor(2.2720, device='cuda:0')
+eval samples: 800 loss: tensor(1.3785, device='cuda:0')
+eval samples: 900 loss: tensor(2.1268, device='cuda:0')
+average loss 1.8276239414811135
+----------------------------------------------------------------------------------------------------
+| Eval  21 at step     2100 | time: 38.01s | valid loss  1.83 | valid ppl  6.22 | best ppl  6.19 
+----------------------------------------------------------------------------------------------------
+| epoch   2 step     2120 |    870 batches | lr 0.0001 | ms/batch 2115.17 | loss  2.77 | avg loss  3.33 | ppl 27.99
+| epoch   2 step     2140 |    890 batches | lr 9.91e-05 | ms/batch 209.41 | loss  3.00 | avg loss  3.18 | ppl 24.00
+| epoch   2 step     2160 |    910 batches | lr 9.78e-05 | ms/batch 208.43 | loss  3.15 | avg loss  3.19 | ppl 24.19
+| epoch   2 step     2180 |    930 batches | lr 9.66e-05 | ms/batch 207.32 | loss  3.45 | avg loss  3.15 | ppl 23.25
+| epoch   2 step     2200 |    950 batches | lr 9.54e-05 | ms/batch 206.71 | loss  2.87 | avg loss  3.23 | ppl 25.35
+eval samples: 0 loss: tensor(1.5139, device='cuda:0')
+eval samples: 100 loss: tensor(1.2959, device='cuda:0')
+eval samples: 200 loss: tensor(1.2721, device='cuda:0')
+eval samples: 300 loss: tensor(3.5389, device='cuda:0')
+eval samples: 400 loss: tensor(1.9168, device='cuda:0')
+eval samples: 500 loss: tensor(1.5292, device='cuda:0')
+eval samples: 600 loss: tensor(1.6968, device='cuda:0')
+eval samples: 700 loss: tensor(2.2071, device='cuda:0')
+eval samples: 800 loss: tensor(1.4152, device='cuda:0')
+eval samples: 900 loss: tensor(2.2165, device='cuda:0')
+average loss 1.8042069074213505
+----------------------------------------------------------------------------------------------------
+| Eval  22 at step     2200 | time: 36.54s | valid loss  1.80 | valid ppl  6.08 | best ppl  6.08 
+----------------------------------------------------------------------------------------------------
+| epoch   2 step     2220 |    970 batches | lr 9.42e-05 | ms/batch 2036.80 | loss  3.53 | avg loss  3.18 | ppl 24.04
+| epoch   2 step     2240 |    990 batches | lr 9.29e-05 | ms/batch 208.84 | loss  3.28 | avg loss  3.22 | ppl 25.14
+| epoch   2 step     2260 |   1010 batches | lr 9.17e-05 | ms/batch 210.55 | loss  2.74 | avg loss  3.35 | ppl 28.43
+| epoch   2 step     2280 |   1030 batches | lr 9.05e-05 | ms/batch 209.92 | loss  2.75 | avg loss  3.20 | ppl 24.65
+| epoch   2 step     2300 |   1050 batches | lr 8.92e-05 | ms/batch 213.92 | loss  3.40 | avg loss  3.34 | ppl 28.30
+eval samples: 0 loss: tensor(1.4713, device='cuda:0')
+eval samples: 100 loss: tensor(1.2484, device='cuda:0')
+eval samples: 200 loss: tensor(1.2852, device='cuda:0')
+eval samples: 300 loss: tensor(3.4744, device='cuda:0')
+eval samples: 400 loss: tensor(1.9128, device='cuda:0')
+eval samples: 500 loss: tensor(1.5716, device='cuda:0')
+eval samples: 600 loss: tensor(1.6282, device='cuda:0')
+eval samples: 700 loss: tensor(2.2543, device='cuda:0')
+eval samples: 800 loss: tensor(1.4737, device='cuda:0')
+eval samples: 900 loss: tensor(2.2375, device='cuda:0')
+average loss 1.8224859895706176
+----------------------------------------------------------------------------------------------------
+| Eval  23 at step     2300 | time: 35.84s | valid loss  1.82 | valid ppl  6.19 | best ppl  6.08 
+----------------------------------------------------------------------------------------------------
+| epoch   2 step     2320 |   1070 batches | lr 8.8e-05 | ms/batch 2003.57 | loss  2.94 | avg loss  3.24 | ppl 25.46
+| epoch   2 step     2340 |   1090 batches | lr 8.68e-05 | ms/batch 207.64 | loss  3.32 | avg loss  3.12 | ppl 22.76
+| epoch   2 step     2360 |   1110 batches | lr 8.55e-05 | ms/batch 210.12 | loss  3.31 | avg loss  3.29 | ppl 26.71
+| epoch   2 step     2380 |   1130 batches | lr 8.43e-05 | ms/batch 216.34 | loss  3.01 | avg loss  3.17 | ppl 23.91
+| epoch   2 step     2400 |   1150 batches | lr 8.31e-05 | ms/batch 206.62 | loss  2.51 | avg loss  3.22 | ppl 25.14
+eval samples: 0 loss: tensor(1.5097, device='cuda:0')
+eval samples: 100 loss: tensor(1.3093, device='cuda:0')
+eval samples: 200 loss: tensor(1.2922, device='cuda:0')
+eval samples: 300 loss: tensor(3.4752, device='cuda:0')
+eval samples: 400 loss: tensor(1.8920, device='cuda:0')
+eval samples: 500 loss: tensor(1.5187, device='cuda:0')
+eval samples: 600 loss: tensor(1.5852, device='cuda:0')
+eval samples: 700 loss: tensor(2.2697, device='cuda:0')
+eval samples: 800 loss: tensor(1.4496, device='cuda:0')
+eval samples: 900 loss: tensor(2.1761, device='cuda:0')
+average loss 1.8091607156395912
+----------------------------------------------------------------------------------------------------
+| Eval  24 at step     2400 | time: 38.25s | valid loss  1.81 | valid ppl  6.11 | best ppl  6.08 
+----------------------------------------------------------------------------------------------------
+| epoch   2 step     2420 |   1170 batches | lr 8.18e-05 | ms/batch 2058.47 | loss  3.22 | avg loss  3.25 | ppl 25.89
+| epoch   2 step     2440 |   1190 batches | lr 8.06e-05 | ms/batch 209.84 | loss  2.77 | avg loss  3.34 | ppl 28.26
+| epoch   2 step     2460 |   1210 batches | lr 7.94e-05 | ms/batch 206.77 | loss  3.10 | avg loss  3.21 | ppl 24.77
+| epoch   2 step     2480 |   1230 batches | lr 7.82e-05 | ms/batch 211.27 | loss  3.12 | avg loss  3.32 | ppl 27.66
+| epoch   2 step     2500 |   1250 batches | lr 7.69e-05 | ms/batch 206.44 | loss  3.03 | avg loss  3.19 | ppl 24.39
+eval samples: 0 loss: tensor(1.4988, device='cuda:0')
+eval samples: 100 loss: tensor(1.2058, device='cuda:0')
+eval samples: 200 loss: tensor(1.2954, device='cuda:0')
+eval samples: 300 loss: tensor(3.4021, device='cuda:0')
+eval samples: 400 loss: tensor(1.8671, device='cuda:0')
+eval samples: 500 loss: tensor(1.5540, device='cuda:0')
+eval samples: 600 loss: tensor(1.6137, device='cuda:0')
+eval samples: 700 loss: tensor(2.2610, device='cuda:0')
+eval samples: 800 loss: tensor(1.4751, device='cuda:0')
+eval samples: 900 loss: tensor(2.0896, device='cuda:0')
+average loss 1.799386584341526
+----------------------------------------------------------------------------------------------------
+| Eval  25 at step     2500 | time: 37.54s | valid loss  1.80 | valid ppl  6.05 | best ppl  6.05 
+----------------------------------------------------------------------------------------------------
+saving checkpoint ./trained_models/GPT2_SM/dart/model.2500.pt
+start to train the model................ 3
+| epoch   3 step     2520 |     20 batches | lr 7.57e-05 | ms/batch 215.09 | loss  3.03 | avg loss  3.14 | ppl 23.01
+| epoch   3 step     2540 |     40 batches | lr 7.45e-05 | ms/batch 192.98 | loss  3.72 | avg loss  3.21 | ppl 24.76
+| epoch   3 step     2560 |     60 batches | lr 7.32e-05 | ms/batch 199.73 | loss  3.17 | avg loss  3.05 | ppl 21.05
+| epoch   3 step     2580 |     80 batches | lr 7.2e-05 | ms/batch 204.19 | loss  2.91 | avg loss  3.19 | ppl 24.17
+| epoch   3 step     2600 |    100 batches | lr 7.08e-05 | ms/batch 200.65 | loss  2.78 | avg loss  3.15 | ppl 23.34
+eval samples: 0 loss: tensor(1.4892, device='cuda:0')
+eval samples: 100 loss: tensor(1.2194, device='cuda:0')
+eval samples: 200 loss: tensor(1.3079, device='cuda:0')
+eval samples: 300 loss: tensor(3.2433, device='cuda:0')
+eval samples: 400 loss: tensor(2.0084, device='cuda:0')
+eval samples: 500 loss: tensor(1.5746, device='cuda:0')
+eval samples: 600 loss: tensor(1.6147, device='cuda:0')
+eval samples: 700 loss: tensor(2.2827, device='cuda:0')
+eval samples: 800 loss: tensor(1.4322, device='cuda:0')
+eval samples: 900 loss: tensor(2.2074, device='cuda:0')
+average loss 1.7994381666481496
+----------------------------------------------------------------------------------------------------
+| Eval  26 at step     2600 | time: 36.79s | valid loss  1.80 | valid ppl  6.05 | best ppl  6.05 
+----------------------------------------------------------------------------------------------------
+| epoch   3 step     2620 |    120 batches | lr 6.95e-05 | ms/batch 2053.39 | loss  3.29 | avg loss  3.22 | ppl 24.99
+| epoch   3 step     2640 |    140 batches | lr 6.83e-05 | ms/batch 137.38 | loss  3.42 | avg loss  3.19 | ppl 24.33
+| epoch   3 step     2660 |    160 batches | lr 6.71e-05 | ms/batch 208.97 | loss  2.78 | avg loss  3.17 | ppl 23.83
+| epoch   3 step     2680 |    180 batches | lr 6.58e-05 | ms/batch 207.23 | loss  3.22 | avg loss  3.21 | ppl 24.84
+| epoch   3 step     2700 |    200 batches | lr 6.46e-05 | ms/batch 209.96 | loss  3.24 | avg loss  3.29 | ppl 26.75
+eval samples: 0 loss: tensor(1.4817, device='cuda:0')
+eval samples: 100 loss: tensor(1.2339, device='cuda:0')
+eval samples: 200 loss: tensor(1.2851, device='cuda:0')
+eval samples: 300 loss: tensor(3.3497, device='cuda:0')
+eval samples: 400 loss: tensor(1.9372, device='cuda:0')
+eval samples: 500 loss: tensor(1.5510, device='cuda:0')
+eval samples: 600 loss: tensor(1.5918, device='cuda:0')
+eval samples: 700 loss: tensor(2.2716, device='cuda:0')
+eval samples: 800 loss: tensor(1.4214, device='cuda:0')
+eval samples: 900 loss: tensor(2.2310, device='cuda:0')
+average loss 1.7964403049349784
+----------------------------------------------------------------------------------------------------
+| Eval  27 at step     2700 | time: 37.41s | valid loss  1.80 | valid ppl  6.03 | best ppl  6.03 
+----------------------------------------------------------------------------------------------------
+| epoch   3 step     2720 |    220 batches | lr 6.34e-05 | ms/batch 2080.75 | loss  2.92 | avg loss  3.27 | ppl 26.39
+| epoch   3 step     2740 |    240 batches | lr 6.22e-05 | ms/batch 206.87 | loss  2.96 | avg loss  3.22 | ppl 24.99
+| epoch   3 step     2760 |    260 batches | lr 6.09e-05 | ms/batch 135.00 | loss  2.93 | avg loss  3.07 | ppl 21.52
+| epoch   3 step     2780 |    280 batches | lr 5.97e-05 | ms/batch 208.10 | loss  2.69 | avg loss  3.13 | ppl 22.96
+| epoch   3 step     2800 |    300 batches | lr 5.85e-05 | ms/batch 206.14 | loss  3.58 | avg loss  3.33 | ppl 27.83
+eval samples: 0 loss: tensor(1.4521, device='cuda:0')
+eval samples: 100 loss: tensor(1.2661, device='cuda:0')
+eval samples: 200 loss: tensor(1.2904, device='cuda:0')
+eval samples: 300 loss: tensor(3.3919, device='cuda:0')
+eval samples: 400 loss: tensor(1.8609, device='cuda:0')
+eval samples: 500 loss: tensor(1.5574, device='cuda:0')
+eval samples: 600 loss: tensor(1.6413, device='cuda:0')
+eval samples: 700 loss: tensor(2.3135, device='cuda:0')
+eval samples: 800 loss: tensor(1.4289, device='cuda:0')
+eval samples: 900 loss: tensor(2.2584, device='cuda:0')
+average loss 1.7969344359636308
+----------------------------------------------------------------------------------------------------
+| Eval  28 at step     2800 | time: 37.58s | valid loss  1.80 | valid ppl  6.03 | best ppl  6.03 
+----------------------------------------------------------------------------------------------------
+| epoch   3 step     2820 |    320 batches | lr 5.72e-05 | ms/batch 2091.44 | loss  2.94 | avg loss  3.29 | ppl 26.81
+| epoch   3 step     2840 |    340 batches | lr 5.6e-05 | ms/batch 207.09 | loss  3.60 | avg loss  3.42 | ppl 30.48
+| epoch   3 step     2860 |    360 batches | lr 5.48e-05 | ms/batch 212.24 | loss  2.70 | avg loss  3.26 | ppl 26.14
+| epoch   3 step     2880 |    380 batches | lr 5.35e-05 | ms/batch 134.00 | loss  3.69 | avg loss  3.23 | ppl 25.18
+| epoch   3 step     2900 |    400 batches | lr 5.23e-05 | ms/batch 209.09 | loss  3.08 | avg loss  3.14 | ppl 23.17
+eval samples: 0 loss: tensor(1.4827, device='cuda:0')
+eval samples: 100 loss: tensor(1.2584, device='cuda:0')
+eval samples: 200 loss: tensor(1.2686, device='cuda:0')
+eval samples: 300 loss: tensor(3.4307, device='cuda:0')
+eval samples: 400 loss: tensor(1.8885, device='cuda:0')
+eval samples: 500 loss: tensor(1.5512, device='cuda:0')
+eval samples: 600 loss: tensor(1.6620, device='cuda:0')
+eval samples: 700 loss: tensor(2.3098, device='cuda:0')
+eval samples: 800 loss: tensor(1.4289, device='cuda:0')
+eval samples: 900 loss: tensor(2.3667, device='cuda:0')
+average loss 1.804822437763214
+----------------------------------------------------------------------------------------------------
+| Eval  29 at step     2900 | time: 37.84s | valid loss  1.80 | valid ppl  6.08 | best ppl  6.03 
+----------------------------------------------------------------------------------------------------
+| epoch   3 step     2920 |    420 batches | lr 5.11e-05 | ms/batch 2103.91 | loss  3.25 | avg loss  3.03 | ppl 20.78
+| epoch   3 step     2940 |    440 batches | lr 4.98e-05 | ms/batch 208.79 | loss  3.11 | avg loss  3.27 | ppl 26.30
+| epoch   3 step     2960 |    460 batches | lr 4.86e-05 | ms/batch 210.24 | loss  3.61 | avg loss  3.11 | ppl 22.40
+| epoch   3 step     2980 |    480 batches | lr 4.74e-05 | ms/batch 208.40 | loss  3.46 | avg loss  3.20 | ppl 24.64
+| epoch   3 step     3000 |    500 batches | lr 4.62e-05 | ms/batch 141.06 | loss  3.29 | avg loss  3.34 | ppl 28.30
+saving checkpoint ./trained_models/GPT2_SM/dart/model.3000.pt
+eval samples: 0 loss: tensor(1.4814, device='cuda:0')
+eval samples: 100 loss: tensor(1.1990, device='cuda:0')
+eval samples: 200 loss: tensor(1.2706, device='cuda:0')
+eval samples: 300 loss: tensor(3.3650, device='cuda:0')
+eval samples: 400 loss: tensor(1.9312, device='cuda:0')
+eval samples: 500 loss: tensor(1.5600, device='cuda:0')
+eval samples: 600 loss: tensor(1.6628, device='cuda:0')
+eval samples: 700 loss: tensor(2.3261, device='cuda:0')
+eval samples: 800 loss: tensor(1.4534, device='cuda:0')
+eval samples: 900 loss: tensor(2.1269, device='cuda:0')
+average loss 1.7977783353924752
+----------------------------------------------------------------------------------------------------
+| Eval  30 at step     3000 | time: 37.21s | valid loss  1.80 | valid ppl  6.04 | best ppl  6.03 
+----------------------------------------------------------------------------------------------------
+| epoch   3 step     3020 |    520 batches | lr 4.49e-05 | ms/batch 2079.18 | loss  3.44 | avg loss  3.24 | ppl 25.65
+| epoch   3 step     3040 |    540 batches | lr 4.37e-05 | ms/batch 206.43 | loss  2.95 | avg loss  3.23 | ppl 25.32
+| epoch   3 step     3060 |    560 batches | lr 4.25e-05 | ms/batch 213.67 | loss  3.31 | avg loss  3.27 | ppl 26.27
+| epoch   3 step     3080 |    580 batches | lr 4.12e-05 | ms/batch 209.48 | loss  3.14 | avg loss  3.14 | ppl 23.18
+| epoch   3 step     3100 |    600 batches | lr 4e-05 | ms/batch 206.81 | loss  3.10 | avg loss  3.17 | ppl 23.77
+eval samples: 0 loss: tensor(1.4963, device='cuda:0')
+eval samples: 100 loss: tensor(1.2540, device='cuda:0')
+eval samples: 200 loss: tensor(1.2557, device='cuda:0')
+eval samples: 300 loss: tensor(3.3895, device='cuda:0')
+eval samples: 400 loss: tensor(1.9987, device='cuda:0')
+eval samples: 500 loss: tensor(1.5237, device='cuda:0')
+eval samples: 600 loss: tensor(1.6364, device='cuda:0')
+eval samples: 700 loss: tensor(2.2785, device='cuda:0')
+eval samples: 800 loss: tensor(1.4349, device='cuda:0')
+eval samples: 900 loss: tensor(2.2542, device='cuda:0')
+average loss 1.7961498333215713
+----------------------------------------------------------------------------------------------------
+| Eval  31 at step     3100 | time: 36.76s | valid loss  1.80 | valid ppl  6.03 | best ppl  6.03 
+----------------------------------------------------------------------------------------------------
+| epoch   3 step     3120 |    620 batches | lr 3.88e-05 | ms/batch 2047.43 | loss  2.73 | avg loss  3.10 | ppl 22.19
+| epoch   3 step     3140 |    640 batches | lr 3.75e-05 | ms/batch 211.71 | loss  3.36 | avg loss  2.89 | ppl 18.06
+| epoch   3 step     3160 |    660 batches | lr 3.63e-05 | ms/batch 210.47 | loss  3.06 | avg loss  3.14 | ppl 23.07
+| epoch   3 step     3180 |    680 batches | lr 3.51e-05 | ms/batch 209.54 | loss  2.85 | avg loss  3.09 | ppl 22.04
+| epoch   3 step     3200 |    700 batches | lr 3.38e-05 | ms/batch 206.23 | loss  2.76 | avg loss  3.18 | ppl 24.08
+eval samples: 0 loss: tensor(1.4760, device='cuda:0')
+eval samples: 100 loss: tensor(1.2426, device='cuda:0')
+eval samples: 200 loss: tensor(1.2593, device='cuda:0')
+eval samples: 300 loss: tensor(3.3422, device='cuda:0')
+eval samples: 400 loss: tensor(2.0631, device='cuda:0')
+eval samples: 500 loss: tensor(1.5403, device='cuda:0')
+eval samples: 600 loss: tensor(1.6225, device='cuda:0')
+eval samples: 700 loss: tensor(2.2614, device='cuda:0')
+eval samples: 800 loss: tensor(1.4115, device='cuda:0')
+eval samples: 900 loss: tensor(2.2000, device='cuda:0')
+average loss 1.7962559140324592
+----------------------------------------------------------------------------------------------------
+| Eval  32 at step     3200 | time: 37.93s | valid loss  1.80 | valid ppl  6.03 | best ppl  6.03 
+----------------------------------------------------------------------------------------------------
+| epoch   3 step     3220 |    720 batches | lr 3.26e-05 | ms/batch 2037.37 | loss  3.35 | avg loss  3.35 | ppl 28.41
+| epoch   3 step     3240 |    740 batches | lr 3.14e-05 | ms/batch 209.90 | loss  2.93 | avg loss  3.20 | ppl 24.45
+| epoch   3 step     3260 |    760 batches | lr 3.02e-05 | ms/batch 205.26 | loss  3.29 | avg loss  2.96 | ppl 19.21
+| epoch   3 step     3280 |    780 batches | lr 2.89e-05 | ms/batch 208.33 | loss  2.62 | avg loss  3.11 | ppl 22.52
+| epoch   3 step     3300 |    800 batches | lr 2.77e-05 | ms/batch 205.55 | loss  2.68 | avg loss  2.99 | ppl 19.95
+eval samples: 0 loss: tensor(1.4785, device='cuda:0')
+eval samples: 100 loss: tensor(1.2087, device='cuda:0')
+eval samples: 200 loss: tensor(1.2633, device='cuda:0')
+eval samples: 300 loss: tensor(3.3491, device='cuda:0')
+eval samples: 400 loss: tensor(1.9829, device='cuda:0')
+eval samples: 500 loss: tensor(1.5597, device='cuda:0')
+eval samples: 600 loss: tensor(1.6456, device='cuda:0')
+eval samples: 700 loss: tensor(2.2739, device='cuda:0')
+eval samples: 800 loss: tensor(1.4351, device='cuda:0')
+eval samples: 900 loss: tensor(2.1503, device='cuda:0')
+average loss 1.7932269396483898
+----------------------------------------------------------------------------------------------------
+| Eval  33 at step     3300 | time: 38.28s | valid loss  1.79 | valid ppl  6.01 | best ppl  6.01 
+----------------------------------------------------------------------------------------------------
+| epoch   3 step     3320 |    820 batches | lr 2.65e-05 | ms/batch 2127.22 | loss  3.08 | avg loss  3.18 | ppl 24.13
+| epoch   3 step     3340 |    840 batches | lr 2.52e-05 | ms/batch 134.48 | loss  2.65 | avg loss  3.30 | ppl 27.06
+| epoch   3 step     3360 |    860 batches | lr 2.4e-05 | ms/batch 205.68 | loss  3.46 | avg loss  3.29 | ppl 26.96
+| epoch   3 step     3380 |    880 batches | lr 2.28e-05 | ms/batch 212.84 | loss  3.22 | avg loss  3.23 | ppl 25.25
+| epoch   3 step     3400 |    900 batches | lr 2.15e-05 | ms/batch 209.07 | loss  3.49 | avg loss  3.25 | ppl 25.85
+eval samples: 0 loss: tensor(1.5001, device='cuda:0')
+eval samples: 100 loss: tensor(1.2062, device='cuda:0')
+eval samples: 200 loss: tensor(1.2747, device='cuda:0')
+eval samples: 300 loss: tensor(3.3081, device='cuda:0')
+eval samples: 400 loss: tensor(2.0520, device='cuda:0')
+eval samples: 500 loss: tensor(1.5778, device='cuda:0')
+eval samples: 600 loss: tensor(1.5971, device='cuda:0')
+eval samples: 700 loss: tensor(2.2835, device='cuda:0')
+eval samples: 800 loss: tensor(1.4406, device='cuda:0')
+eval samples: 900 loss: tensor(2.1118, device='cuda:0')
+average loss 1.7976502098441125
+----------------------------------------------------------------------------------------------------
+| Eval  34 at step     3400 | time: 38.39s | valid loss  1.80 | valid ppl  6.04 | best ppl  6.01 
+----------------------------------------------------------------------------------------------------
+| epoch   3 step     3420 |    920 batches | lr 2.03e-05 | ms/batch 2128.43 | loss  3.39 | avg loss  3.11 | ppl 22.52
+| epoch   3 step     3440 |    940 batches | lr 1.91e-05 | ms/batch 208.93 | loss  3.00 | avg loss  3.26 | ppl 25.95
+| epoch   3 step     3460 |    960 batches | lr 1.78e-05 | ms/batch 131.48 | loss  2.95 | avg loss  3.23 | ppl 25.16
+| epoch   3 step     3480 |    980 batches | lr 1.66e-05 | ms/batch 209.59 | loss  3.25 | avg loss  3.07 | ppl 21.60
+| epoch   3 step     3500 |   1000 batches | lr 1.54e-05 | ms/batch 209.24 | loss  3.72 | avg loss  3.16 | ppl 23.52
+eval samples: 0 loss: tensor(1.4592, device='cuda:0')
+eval samples: 100 loss: tensor(1.2411, device='cuda:0')
+eval samples: 200 loss: tensor(1.2590, device='cuda:0')
+eval samples: 300 loss: tensor(3.3634, device='cuda:0')
+eval samples: 400 loss: tensor(2.0145, device='cuda:0')
+eval samples: 500 loss: tensor(1.5597, device='cuda:0')
+eval samples: 600 loss: tensor(1.5887, device='cuda:0')
+eval samples: 700 loss: tensor(2.2535, device='cuda:0')
+eval samples: 800 loss: tensor(1.4387, device='cuda:0')
+eval samples: 900 loss: tensor(2.1384, device='cuda:0')
+average loss 1.7870156520307063
+----------------------------------------------------------------------------------------------------
+| Eval  35 at step     3500 | time: 38.86s | valid loss  1.79 | valid ppl  5.97 | best ppl  5.97 
+----------------------------------------------------------------------------------------------------
+| epoch   3 step     3520 |   1020 batches | lr 1.42e-05 | ms/batch 2157.26 | loss  3.00 | avg loss  3.07 | ppl 21.53
+| epoch   3 step     3540 |   1040 batches | lr 1.29e-05 | ms/batch 214.21 | loss  2.67 | avg loss  3.05 | ppl 21.06
+| epoch   3 step     3560 |   1060 batches | lr 1.17e-05 | ms/batch 217.80 | loss  3.07 | avg loss  3.03 | ppl 20.77
+| epoch   3 step     3580 |   1080 batches | lr 1.05e-05 | ms/batch 138.69 | loss  2.59 | avg loss  2.96 | ppl 19.26
+| epoch   3 step     3600 |   1100 batches | lr 9.23e-06 | ms/batch 209.10 | loss  2.98 | avg loss  3.11 | ppl 22.35
+eval samples: 0 loss: tensor(1.4479, device='cuda:0')
+eval samples: 100 loss: tensor(1.2260, device='cuda:0')
+eval samples: 200 loss: tensor(1.2630, device='cuda:0')
+eval samples: 300 loss: tensor(3.3382, device='cuda:0')
+eval samples: 400 loss: tensor(1.9679, device='cuda:0')
+eval samples: 500 loss: tensor(1.5629, device='cuda:0')
+eval samples: 600 loss: tensor(1.6159, device='cuda:0')
+eval samples: 700 loss: tensor(2.2520, device='cuda:0')
+eval samples: 800 loss: tensor(1.4208, device='cuda:0')
+eval samples: 900 loss: tensor(2.1504, device='cuda:0')
+average loss 1.7871205570101738
+----------------------------------------------------------------------------------------------------
+| Eval  36 at step     3600 | time: 40.01s | valid loss  1.79 | valid ppl  5.97 | best ppl  5.97 
+----------------------------------------------------------------------------------------------------
+| epoch   3 step     3620 |   1120 batches | lr 8e-06 | ms/batch 2216.96 | loss  3.12 | avg loss  3.03 | ppl 20.73
+| epoch   3 step     3640 |   1140 batches | lr 6.77e-06 | ms/batch 222.99 | loss  2.87 | avg loss  3.18 | ppl 24.09
+| epoch   3 step     3660 |   1160 batches | lr 5.54e-06 | ms/batch 217.91 | loss  3.12 | avg loss  3.18 | ppl 24.09
+| epoch   3 step     3680 |   1180 batches | lr 4.31e-06 | ms/batch 135.24 | loss  3.70 | avg loss  3.15 | ppl 23.31
+| epoch   3 step     3700 |   1200 batches | lr 3.08e-06 | ms/batch 223.11 | loss  2.79 | avg loss  3.20 | ppl 24.58
+eval samples: 0 loss: tensor(1.4506, device='cuda:0')
+eval samples: 100 loss: tensor(1.2400, device='cuda:0')
+eval samples: 200 loss: tensor(1.2657, device='cuda:0')
+eval samples: 300 loss: tensor(3.3336, device='cuda:0')
+eval samples: 400 loss: tensor(1.9778, device='cuda:0')
+eval samples: 500 loss: tensor(1.5613, device='cuda:0')
+eval samples: 600 loss: tensor(1.6213, device='cuda:0')
+eval samples: 700 loss: tensor(2.2509, device='cuda:0')
+eval samples: 800 loss: tensor(1.4219, device='cuda:0')
+eval samples: 900 loss: tensor(2.1659, device='cuda:0')
+average loss 1.7878672978281975
+----------------------------------------------------------------------------------------------------
+| Eval  37 at step     3700 | time: 39.49s | valid loss  1.79 | valid ppl  5.98 | best ppl  5.97 
+----------------------------------------------------------------------------------------------------
+| epoch   3 step     3720 |   1220 batches | lr 1.85e-06 | ms/batch 2190.75 | loss  3.06 | avg loss  3.34 | ppl 28.29
+| epoch   3 step     3740 |   1240 batches | lr 6.15e-07 | ms/batch 213.21 | loss  3.16 | avg loss  3.12 | ppl 22.55
+saving checkpoint ./trained_models/GPT2_SM/dart/model.3750.pt
+----------------------------------------------------------------------------------------------------
+End of training
+cleanup dist ...

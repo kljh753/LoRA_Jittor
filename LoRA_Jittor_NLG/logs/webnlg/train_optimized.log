@@ -1,0 +1,170 @@
+[38;5;2m[i 0812 12:43:09.060121 28 compiler.py:956] Jittor(1.3.10.0) src: /home/dmw/anaconda3/envs/lora/lib/python3.9/site-packages/jittor[m
+[38;5;2m[i 0812 12:43:09.070410 28 compiler.py:957] g++ at /usr/bin/g++(11.4.0)[m
+[38;5;2m[i 0812 12:43:09.070557 28 compiler.py:958] cache_path: /home/dmw/.cache/jittor/jt1.3.10/g++11.4.0/py3.9.23/Linux-6.6.87.2x0f/12thGenIntelRCx5f/1556/default[m
+[38;5;2m[i 0812 12:43:09.090917 28 __init__.py:412] Found nvcc(12.1.66) at /usr/local/cuda-12.1/bin/nvcc.[m
+[38;5;2m[i 0812 12:43:09.223122 28 __init__.py:412] Found addr2line(2.38) at /usr/bin/addr2line.[m
+[38;5;2m[i 0812 12:43:09.467600 28 compiler.py:1013] cuda key:cu12.1.66[m
+[38;5;2m[i 0812 12:43:10.395434 28 __init__.py:227] Total mem: 7.61GB, using 2 procs for compiling.[m
+[38;5;2m[i 0812 12:43:09.971756 28 jit_compiler.cc:28] Load cc_path: /usr/bin/g++[m
+[38;5;2m[i 0812 12:43:10.542216 28 init.cc:63] Found cuda archs: [86,][m
+[38;5;3m[w 0812 12:43:15.595090 28 compile_extern.py:203] CUDA related path found in LD_LIBRARY_PATH or PATH, This path may cause jittor found the wrong libs, please unset LD_LIBRARY_PATH and remove cuda lib path in Path. 
+Or you can let jittor install cuda for you: `python3.x -m jittor_utils.install_cuda`[m
+[38;5;2m[i 0812 12:43:16.857038 28 cuda_flags.cc:55] CUDA enabled.[m
+
+Compiling Operators(3/26) used: 8.77s eta: 67.2s Compiling Operators(5/26) used: 15.8s eta: 66.3s Compiling Operators(7/26) used: 24.9s eta: 67.5s Compiling Operators(17/26) used: 32.9s eta: 17.4s Compiling Operators(18/26) used: 37.9s eta: 16.9s Compiling Operators(19/26) used: 39.3s eta: 14.5s Compiling Operators(20/26) used: 44.3s eta: 13.3s Compiling Operators(21/26) used: 46.3s eta:   11s Compiling Operators(22/26) used: 51.3s eta: 9.33s Compiling Operators(23/26) used: 53.4s eta: 6.96s Compiling Operators(24/26) used: 59.4s eta: 4.95s Compiling Operators(25/26) used: 62.4s eta:  2.5s Compiling Operators(26/26) used: 66.5s eta:    0s 
+
+Compiling Operators(1/2) used: 4.68s eta: 4.68s Compiling Operators(2/2) used: 10.7s eta:    0s 
+
+Compiling Operators(1/25) used: 5.53s eta:  133s Compiling Operators(3/25) used: 11.5s eta: 84.6s Compiling Operators(4/25) used: 16.6s eta: 87.2s Compiling Operators(5/25) used: 17.6s eta: 70.4s Compiling Operators(6/25) used: 20.6s eta: 65.3s Compiling Operators(7/25) used: 22.7s eta: 58.2s Compiling Operators(8/25) used:   25s eta: 53.1s Compiling Operators(9/25) used:   29s eta: 51.6s Compiling Operators(10/25) used:   31s eta: 46.5s Compiling Operators(11/25) used:   36s eta: 45.8s Compiling Operators(12/25) used:   38s eta: 41.2s Compiling Operators(13/25) used:   43s eta: 39.7s Compiling Operators(14/25) used:   44s eta: 34.6s 
+Using CUDA device
+myrank: 0 local_rank: 0 device_count: 1 world_size: 1
+====================================================================================================
+        - platform : single
+        - local_rank : 0
+        - rank : 0
+        - device : 0
+        - world_size : 1
+        - random_seed : 100
+        - lr : 0.0002
+        - weight_decay : 0.01
+        - correct_bias : True
+        - adam_epislon : 1e-06
+        - no_decay_bias : False
+        - adam_beta1 : 0.9
+        - adam_beta2 : 0.999
+        - scheduler : linear
+        - max_step : None
+        - max_epoch : 3
+        - warmup_step : 500
+        - i_steps : 0
+        - i_lrs : 0.00025
+        - train_data : ./data/webnlg_challenge_2017/train.jsonl
+        - valid_data : ./data/webnlg_challenge_2017/valid.jsonl
+        - train_batch_size : 2
+        - valid_batch_size : 1
+        - grad_acc : 4
+        - clip : 1.0
+        - seq_len : 256
+        - model_card : gpt2.sm
+        - init_checkpoint : ./pretrained_checkpoints/gpt2-pytorch_model.bin
+        - fp16 : True
+        - log_interval : 20
+        - eval_interval : 200
+        - save_interval : 1000
+        - work_dir : ./trained_models/GPT2_M/webnlg
+        - lora_dim : 4
+        - lora_alpha : 32
+        - obj : clm
+        - lora_dropout : 0.1
+        - label_smooth : 0.1
+        - roll_interval : -1
+        - roll_lr : 1e-05
+        - roll_step : 100
+        - eval_epoch : 1
+====================================================================================================
+Enabling mixed precision training (FP16)
+Experiment dir : ./trained_models/GPT2_M/webnlg
+batch_size: 2
+batch_size: 1
+set max_step: 750
+loading model pretrained weight.
+Converting model to FP16...
+Memory optimization settings:
+  - Batch size: 2
+  - Gradient accumulation steps: 4
+  - Effective batch size: 8
+  - Mixed precision (FP16): True
+  - Sequence length: 256
+start to train the model................ 1
+Error in training step 0: Wrong inputs arguments, Please refer to examples(help(jt.item)).
+
+Types of your inputs are:
+ self	= Var,
+ args	= (),
+
+The function declarations are:
+ ItemData item()
+
+Failed reason:[38;5;1m[f 0812 12:45:42.926849 28 parallel_compiler.cc:331] Error happend during compilation:
+ [Error] source file location:/home/dmw/.cache/jittor/jt1.3.10/g++11.4.0/py3.9.23/Linux-6.6.87.2x0f/12thGenIntelRCx5f/1556/default/cu12.1.66/jit/__opkey0_broadcast_to__Tx_float16__DIM_3__BCAST_1__opkey1_broadcast_to__Tx_float32__DIM_3____hash_b4ba72a4b198e3ae_op.cc
+Compile fused operator(16/25)failed:[Op(6890:1:1:1:i1:o1:s0:g1,broadcast_to->6891),Op(6888:1:1:1:i1:o1:s0:g1,broadcast_to->6889),Op(6892:2:1:1:i2:o1:s0:g1,binary.multiply->6893),Op(6894:1:1:1:i1:o1:s0:g1,reduce.add->6895),]
+
+Reason: [38;5;1m[f 0812 12:45:41.393576 32:C0 cublas_matmul_op.cc:33] Check failed: a->dtype().dsize() == b->dtype().dsize()  Something wrong... Could you please report this issue?
+ type of two inputs should be the same[m
+[m
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/home/dmw/anaconda3/envs/lora/lib/python3.9/linecache.py", line 46, in getlines
+    return updatecache(filename, module_globals)
+  File "/home/dmw/anaconda3/envs/lora/lib/python3.9/linecache.py", line 137, in updatecache
+    lines = fp.readlines()
+  File "/home/dmw/anaconda3/envs/lora/lib/python3.9/codecs.py", line 322, in decode
+    (result, consumed) = self._buffer_decode(data, self.errors, final)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xce in position 2866: invalid continuation byte
+
+Original exception was:
+Traceback (most recent call last):
+  File "/mnt/d/雷电大魔王/LoRA_Jittor/LoRA_Jittor_NLG/src/gpt2_ft_optimized.py", line 205, in train_validate
+    _lm_logits, _lm_loss = model(
+  File "/home/dmw/anaconda3/envs/lora/lib/python3.9/site-packages/jittor/__init__.py", line 1211, in __call__
+    return self.execute(*args, **kw)
+  File "/mnt/d/雷电大魔王/LoRA_Jittor/LoRA_Jittor_NLG/src/model.py", line 379, in execute
+  File "/home/dmw/anaconda3/envs/lora/lib/python3.9/site-packages/jittor/__init__.py", line 1211, in __call__
+    return self.execute(*args, **kw)
+  File "/mnt/d/雷电大魔王/LoRA_Jittor/LoRA_Jittor_NLG/src/model.py", line 292, in execute
+  File "/home/dmw/anaconda3/envs/lora/lib/python3.9/site-packages/jittor/__init__.py", line 1211, in __call__
+    return self.execute(*args, **kw)
+  File "/mnt/d/雷电大魔王/LoRA_Jittor/LoRA_Jittor_NLG/src/model.py", line 214, in execute
+  File "/home/dmw/anaconda3/envs/lora/lib/python3.9/site-packages/jittor/__init__.py", line 1211, in __call__
+    return self.execute(*args, **kw)
+  File "/mnt/d/雷电大魔王/LoRA_Jittor/LoRA_Jittor_NLG/src/model.py", line 145, in execute
+  File "/home/dmw/anaconda3/envs/lora/lib/python3.9/site-packages/jittor/__init__.py", line 1211, in __call__
+    return self.execute(*args, **kw)
+  File "/mnt/d/雷电大魔王/LoRA_Jittor/LoRA_Jittor_NLG/src/loralib/layers.py", line 303, in execute
+    result += self.lora_dropout(x) @ T(self.merge_AB().transpose(0,1)) * self.scaling
+  File "/mnt/d/雷电大魔王/LoRA_Jittor/LoRA_Jittor_NLG/src/loralib/layers.py", line 259, in merge_AB
+    groups = int(self.enable_lora.sum())
+  File "/home/dmw/anaconda3/envs/lora/lib/python3.9/site-packages/jittor/__init__.py", line 2104, in to_int
+    return ori_int(v.item())
+RuntimeError: Wrong inputs arguments, Please refer to examples(help(jt.item)).
+
+Types of your inputs are:
+ self	= Var,
+ args	= (),
+
+The function declarations are:
+ ItemData item()
+
+Failed reason:[38;5;1m[f 0812 12:45:42.926849 28 parallel_compiler.cc:331] Error happend during compilation:
+ [Error] source file location:/home/dmw/.cache/jittor/jt1.3.10/g++11.4.0/py3.9.23/Linux-6.6.87.2x0f/12thGenIntelRCx5f/1556/default/cu12.1.66/jit/__opkey0_broadcast_to__Tx_float16__DIM_3__BCAST_1__opkey1_broadcast_to__Tx_float32__DIM_3____hash_b4ba72a4b198e3ae_op.cc
+Compile fused operator(16/25)failed:[Op(6890:1:1:1:i1:o1:s0:g1,broadcast_to->6891),Op(6888:1:1:1:i1:o1:s0:g1,broadcast_to->6889),Op(6892:2:1:1:i2:o1:s0:g1,binary.multiply->6893),Op(6894:1:1:1:i1:o1:s0:g1,reduce.add->6895),]
+
+Reason: [38;5;1m[f 0812 12:45:41.393576 32:C0 cublas_matmul_op.cc:33] Check failed: a->dtype().dsize() == b->dtype().dsize()  Something wrong... Could you please report this issue?
+ type of two inputs should be the same[m
+[m
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/d/雷电大魔王/LoRA_Jittor/LoRA_Jittor_NLG/src/gpt2_ft_optimized.py", line 426, in <module>
+    main()
+  File "/mnt/d/雷电大魔王/LoRA_Jittor/LoRA_Jittor_NLG/src/gpt2_ft_optimized.py", line 408, in main
+    train_step = train_validate(
+  File "/mnt/d/雷电大魔王/LoRA_Jittor/LoRA_Jittor_NLG/src/gpt2_ft_optimized.py", line 298, in train_validate
+    jt.sync_all()
+RuntimeError: Wrong inputs arguments, Please refer to examples(help(jt.sync_all)).
+
+Types of your inputs are:
+ self	= module,
+ args	= (),
+
+The function declarations are:
+ void sync_all(bool device_sync=false)
+
+Failed reason:[38;5;1m[f 0812 12:45:43.014112 28 parallel_compiler.cc:331] Error happend during compilation:
+ [Error] source file location:/home/dmw/.cache/jittor/jt1.3.10/g++11.4.0/py3.9.23/Linux-6.6.87.2x0f/12thGenIntelRCx5f/1556/default/cu12.1.66/jit/__opkey0_broadcast_to__Tx_float16__DIM_3__BCAST_1__opkey1_broadcast_to__Tx_float32__DIM_3____hash_b4ba72a4b198e3ae_op.cc
+Compile fused operator(16/24)failed:[Op(6890:1:1:1:i1:o1:s0:g1,broadcast_to->6891),Op(6888:1:1:1:i1:o1:s0:g1,broadcast_to->6889),Op(6892:2:1:1:i2:o1:s0:g1,binary.multiply->6893),Op(6894:1:1:1:i1:o1:s0:g1,reduce.add->6895),]
+
+Reason: [38;5;1m[f 0812 12:45:42.985897 32:C0 cublas_matmul_op.cc:33] Check failed: a->dtype().dsize() == b->dtype().dsize()  Something wrong... Could you please report this issue?
+ type of two inputs should be the same[m
+[m

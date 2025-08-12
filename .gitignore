@@ -1,0 +1,11 @@
+# 模型文件
+*.bin
+*.pt
+*.pth
+*.model
+*.ckpt
+*.safetensors
+
+# 预训练模型目录
+pretrained_checkpoints/
+trained_models/

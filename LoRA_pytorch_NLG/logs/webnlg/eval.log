@@ -1,0 +1,22 @@
+2025-08-11 14:38:43.665339: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-08-11 14:38:43.697363: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1754894323.732460    3505 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1754894323.744135    3505 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1754894323.776331    3505 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1754894323.776419    3505 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1754894323.776425    3505 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1754894323.776427    3505 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-08-11 14:38:43.784409: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+STARTING TO PARSE INPUTS...
+Traceback (most recent call last):
+  File "/mnt/d/雷电大魔王/LoRA_Jittor/LoRA_pytorch_NLG/eval/GenerationEval/eval.py", line 333, in <module>
+    result = run(refs_path=refs_path, hyps_path=hyps_path, num_refs=num_refs, lng=lng, metrics=metrics, ncorder=ncorder, nworder=nworder, beta=beta)
+  File "/mnt/d/雷电大魔王/LoRA_Jittor/LoRA_pytorch_NLG/eval/GenerationEval/eval.py", line 272, in run
+    references, references_tok, hypothesis, hypothesis_tok = parse(refs_path, hyps_path, num_refs, lng)
+  File "/mnt/d/雷电大魔王/LoRA_Jittor/LoRA_pytorch_NLG/eval/GenerationEval/eval.py", line 70, in parse
+    with codecs.open(fname, 'r', 'utf-8') as f:
+  File "/home/dmw/anaconda3/envs/lora/lib/python3.9/codecs.py", line 905, in open
+    file = builtins.open(filename, mode, buffering)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/references_webnlg_pytorch/reference0'

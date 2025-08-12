@@ -1,0 +1,1 @@
+SyntaxError: Non-UTF-8 code starting with '\xcc' in file /mnt/d/雷电大魔王/LoRA_Jittor/LoRA_Jittor_NLG/src/gpt2_ft.py on line 255, but no encoding declared; see https://python.org/dev/peps/pep-0263/ for details

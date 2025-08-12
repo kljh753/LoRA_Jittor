@@ -1,0 +1,11 @@
+cd LoRA_Jittor_NLG
+bash work_dart.sh
+bash work_e2e.sh
+bash work_webnlg.sh
+cd ../LoRA_pytorch_NLG
+bash work_dart.sh
+bash work_e2e.sh
+bash work_webnlg.sh
+cd ..
+python plot_loss.py
+python plot_ppl.py

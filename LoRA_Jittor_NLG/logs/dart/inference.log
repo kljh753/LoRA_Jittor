@@ -1,0 +1,49 @@
+[38;5;2m[i 0812 13:31:52.521243 76 compiler.py:956] Jittor(1.3.10.0) src: /home/dmw/anaconda3/envs/lora/lib/python3.9/site-packages/jittor[m
+[38;5;2m[i 0812 13:31:52.530723 76 compiler.py:957] g++ at /usr/bin/g++(11.4.0)[m
+[38;5;2m[i 0812 13:31:52.530881 76 compiler.py:958] cache_path: /home/dmw/.cache/jittor/jt1.3.10/g++11.4.0/py3.9.23/Linux-6.6.87.2x0f/12thGenIntelRCx5f/1556/default[m
+[38;5;2m[i 0812 13:31:52.546839 76 __init__.py:412] Found nvcc(12.1.66) at /usr/local/cuda-12.1/bin/nvcc.[m
+[38;5;2m[i 0812 13:31:52.874192 76 __init__.py:412] Found addr2line(2.38) at /usr/bin/addr2line.[m
+[38;5;2m[i 0812 13:31:53.169325 76 compiler.py:1013] cuda key:cu12.1.66[m
+[38;5;2m[i 0812 13:31:54.239938 76 __init__.py:227] Total mem: 7.61GB, using 2 procs for compiling.[m
+[38;5;2m[i 0812 13:31:54.520775 76 jit_compiler.cc:28] Load cc_path: /usr/bin/g++[m
+[38;5;2m[i 0812 13:31:55.301687 76 init.cc:63] Found cuda archs: [86,][m
+[38;5;3m[w 0812 13:31:59.902963 76 compile_extern.py:203] CUDA related path found in LD_LIBRARY_PATH or PATH, This path may cause jittor found the wrong libs, please unset LD_LIBRARY_PATH and remove cuda lib path in Path. 
+Or you can let jittor install cuda for you: `python3.x -m jittor_utils.install_cuda`[m
+[38;5;2m[i 0812 13:32:00.902106 76 cuda_flags.cc:55] CUDA enabled.[m
+Using CUDA device
+myrank: 0 local_rank: 0 device_count: 1 world_size: 1
+====================================================================================================
+        - platform : single
+        - local_rank : 0
+        - rank : 0
+        - device : 0
+        - world_size : 1
+        - random_seed : 10
+        - data : ./data/dart/test.jsonl
+        - batch_size : 1
+        - seq_len : 256
+        - eval_len : 64
+        - min_length : 0
+        - model_card : gpt2.sm
+        - init_checkpoint : ./trained_models/GPT2_M/dart/model.1000.pkl
+        - lora_dim : 4
+        - lora_alpha : 32
+        - work_dir : ./trained_models/GPT2_M/dart
+        - beam : 5
+        - length_penalty : 0.8
+        - no_repeat_ngram_size : 3
+        - repetition_penalty : 1.0
+        - eos_token_id : [50256, 628]
+        - output_file : predict.1000.b5p08.jsonl
+====================================================================================================
+Experiment dir : ./trained_models/GPT2_M/dart
+batch_size: 1
+loading model pretrained weight.
+Traceback (most recent call last):
+  File "/mnt/d/雷电大魔王/LoRA_Jittor/LoRA_Jittor_NLG/src/gpt2_beam.py", line 378, in <module>
+    cp = jt.load(args.init_checkpoint)
+  File "/home/dmw/anaconda3/envs/lora/lib/python3.9/site-packages/jittor/__init__.py", line 1177, in load
+    model_dict = safeunpickle(path)
+  File "/home/dmw/anaconda3/envs/lora/lib/python3.9/site-packages/jittor/__init__.py", line 116, in safeunpickle
+    with open(path, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: './trained_models/GPT2_M/dart/model.1000.pkl'
